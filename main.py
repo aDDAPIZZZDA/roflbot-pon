@@ -7,24 +7,20 @@ dp = Dispatcher(bot)
 
 q = ['Скамер', 'Эгоист', 'Дрочун', 'Гей', 'Красавчик', 'Урод', 'Говно', 'Шрек', 'Спонсор сахариуса', 'Хуй', 'Путин', 'Хацкер', 'Далбаёб', 'Секси', 'Любитель сосочков', 'А4', 'Файзик гей', 'Музей пидарасов', 'Диабло GAY', 'ТРАХтарист', 'Мактрахер', 'Гачи-Мучи', 'Собака', 'Олд', 'Лох', 'Длинный хуй', 'Короткий хуй', 'Понос шакала', 'Сперма дракона', 'Петушиный клюв', 'Сранимешник', 'Залупа кита', 'Милашка', 'Топ', 'Даша-путешественница']
 
-@dp.message_handler(commands=['helps'])
-async def help(message: types.Message):
-    qw = ['No Helps xD', '<b>Тебе повезло пон, ибо шанс выпадения этого смс 20%!\n\nКароче пока ток такие команды:</b>\n<code>.адм</code> <b>|</b> <code>.adm</code> <b>-</b> <i>список админов чата</i>\n<code>.мозг</code> <b>-</b> <i>кидает видео мозг</i>\n<code>.я</code> <b>|</b> <code>.ты</code> <b>-</b> <i>говорит кто ты | чел реплея</i>']
-    text = choice(qw)
-    await message.answer(text)
-
 @dp.message_handler(content_types=['text'])
 async def members(message: types.Message):
     t = message.text
     if t == '.я' or t == '.Я':
         text = choice(q)
         await message.reply(f'<b>Ты {text}</b>')
+    
+    elif message.text == '.хелп' or message.text == '.help':
+        qw = ['No Helps xD', '<b>Тебе повезло пон, ибо на это смс 50% выподения, хотя это дохуя, ладно!\n\nКароче пока ток такие команды:</b>\n<code>.адм</code> <b>|</b> <code>.adm</code> <b>-</b> <i>список админов чата</i>\n<code>.я</code> <b>|</b> <code>.ты</code> <b>-</b> <i>говорит кто ты | чел реплея</i>\n\n<code>.help</code> <b>|</b> <code>.хелп</code> <b>-</b> <i>доступные команды</i>']
+        text = choice(qw)
+        await message.reply(text)
 
     elif t == '.ты' or t == '.Ты':
-        try:
-            await message.delete()
-        except:
-            pass
+        await message.delete()
 
         if message.reply_to_message:
             text = choice(q)

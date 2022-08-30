@@ -21,15 +21,15 @@ async def members(message: types.Message):
         await message.reply(f'<b>Ты {text}</b>')
 
     elif t == '.ты' or t == '.Ты':
-        text = choice
-
         try:
             await message.reply_to_message.delete()
         except:
             pass
 
         if message.reply_to_message:
-            await message.reply(f"<b>Ты {text}</b>")
+            text = choice(q)
+            kf = f"<b>Ты {text}</b>"
+            await message.reply(kf)
         else:
             await message.reply('<b>Только на реплей!</b>')
 
@@ -43,8 +43,9 @@ async def members(message: types.Message):
         admins = await bot.get_chat_administrators(message.chat.id)
         for i in admins:
             qу.append(f'''{w} <a href='tg://user?id={i.id}'>{i.user.full_name}</a>''')
+            qу.append(f'''{w} <a href='https://t.me/{i.user.username}'>{i.user.first_name}</a>''')
             w = w + 1
-        await message.answer('\n'.join(q), disable_web_page_preview=True)
+        await message.answer('\n'.join(qу), disable_web_page_preview=True)
 
     elif t == '1':
         await message.reply(f"{message.chat.get_member_count()}")

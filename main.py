@@ -29,7 +29,7 @@ async def members(message: types.Message):
         if message.reply_to_message:
             text = choice(q)
             kf = f"<b>Ты {text}</b>"
-            await message.reply(kf)
+            await message.reply_to_message.reply(kf)
         else:
             await message.reply('<b>Только на реплей!</b>')
 

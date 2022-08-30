@@ -22,7 +22,7 @@ async def members(message: types.Message):
 
     elif t == '.ты' or t == '.Ты':
         try:
-            await message.reply_to_message.delete()
+            await message.delete()
         except:
             pass
 

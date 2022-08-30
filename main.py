@@ -1,4 +1,4 @@
-from telebot import TeleBot
+
 from aiogram import Dispatcher, Bot, types
 from random import choice
 

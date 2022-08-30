@@ -49,7 +49,7 @@ async def members(message: types.Message):
     elif t == '1':
         await message.reply(f"{bot.chat_member_handler()}")
 
-async def on_startup(dp
+async def on_startup(dp):
     ADMINS = [
         910207255,
         -1001283685896,

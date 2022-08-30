@@ -40,7 +40,7 @@ async def members(message: types.Message):
             pass
         w = 1
         qу = []
-        admins = await bot.get_chat_administrators(chat_id=message.chat.id):
+        admins = await bot.get_chat_administrators(message.chat.id)
         for i in admins:
             qу.append(f'''{w}) <a href='https://t.me/{i.user.username}'>{i.user.first_name}</a>''')
             w = w + 1

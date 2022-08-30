@@ -53,9 +53,12 @@ async def on_startup(dp: Dispatcher):
     ADMINS = [
         910207255,
         -1001283685896,
+        5184725450,
     ]
     for admin in ADMINS:
-        await dp.bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
+        try:
+            await dp.bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
+        except:pass
 
 async def pon(dp):
     await on_startup(dp)

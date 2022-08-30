@@ -42,9 +42,9 @@ async def members(message: types.Message):
         qу = []
         admins = await bot.get_chat_administrators(message.chat.id)
         for i in admins:
-            qу.append(f'''{w}) <a href='https://t.me/{i.user.username}'>{i.user.first_name}</a>''')
+            qу.append(f'''{w} <a href='https://t.me/{i.user.username}'>{i.user.first_name}</a>''')
             w = w + 1
-        await message.answer('\n'.join(qy), disable_web_page_preview=True)
+        await message.answer('\n'.join(qу), disable_web_page_preview=True)
 
     elif t == '1':
         await message.reply(f"{message.chat.get_member_count()}")

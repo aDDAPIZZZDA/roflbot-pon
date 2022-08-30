@@ -57,6 +57,9 @@ async def on_startup(dp: Dispatcher):
     for admin in ADMINS:
         await dp.bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
 
+async def pon(dp):
+    await on_startup(dp)
+
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True, on_startup=on_startup(dp))
+    executor.start_polling(dp, skip_updates=True, on_startup=pon)

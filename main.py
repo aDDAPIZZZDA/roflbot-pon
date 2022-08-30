@@ -31,7 +31,7 @@ async def members(message: types.Message):
         if message.reply_to_message:
             await message.reply(f"<b>Ты {text}</b>")
         else:
-            await message.reply'<b>Только на реплей!</b>')
+            await message.reply('<b>Только на реплей!</b>')
 
     elif t.lover() == '.адм' or t.lover() == '.adm':
         try:

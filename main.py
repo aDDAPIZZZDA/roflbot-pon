@@ -16,11 +16,11 @@ async def help(message: types.Message):
 @dp.message_handler(content_types=['text'])
 async def members(message: types.Message):
     t = message.text
-    if t.lover() == '.я':
+    if t == '.я' or t == '.Я':
         text = choice(q)
         await message.reply(f'<b>Ты {text}</b>')
 
-    elif t.lover() == '.ты':
+    elif t == '.ты' or t == '.Ты':
         text = choice
 
         try:
@@ -33,7 +33,7 @@ async def members(message: types.Message):
         else:
             await message.reply('<b>Только на реплей!</b>')
 
-    elif t.lover() == '.адм' or t.lover() == '.adm':
+    elif t == '.адм' or t == '.adm':
         try:
             await message.reply_to_message.delete()
         except:

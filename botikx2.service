@@ -1,0 +1,16 @@
+[Unit]
+Description=rofl bot pon
+
+
+[Install]
+WantedBy=multi-user.target
+
+[Service]
+Type=simple
+WorkingDirectory=/home/ubuntu/roflbot-pon
+User=ubuntu
+RemainAfterExit=no
+ExecStart=/usr/bin/python3 main.py --port 8080 
+Restart=always
+RestartSec=15
+TimeoutSec=1

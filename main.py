@@ -1,5 +1,5 @@
 
-from aiogram import Dispatcher, Bot, types
+from aiogram import Dispatcher, Bot, types, executor
 from random import choice
 
 bot = Bot(token='5413288721:AAFE8S-ADmbFhFmdOoeD8q4gpBLliWpVvhE', parse_mode="HTML")
@@ -47,15 +47,15 @@ async def members(message: types.Message):
         await message.answer('\n'.join(q), disable_web_page_preview=True)
 
     elif t == '1':
-        await message.reply(f"{bot.chat_member_handler()}")
+        await message.reply(f"{message.chat.get_member_count()}")
 
-async def on_startup(dp):
+async def on_startup():
     ADMINS = [
         910207255,
         -1001283685896,
     ]
     for admin in ADMINS:
-        await dp.bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
+        await bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
 
 
 if __name__ == '__main__':

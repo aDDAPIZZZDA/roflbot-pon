@@ -49,14 +49,14 @@ async def members(message: types.Message):
     elif t == '1':
         await message.reply(f"{message.chat.get_member_count()}")
 
-async def on_startup():
+async def on_startup(dp: Dispatcher):
     ADMINS = [
         910207255,
         -1001283685896,
     ]
     for admin in ADMINS:
-        await bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
+        await dp.bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
 
 
 if __name__ == '__main__':
-    executor.start_polling(dp, skip_updates=True, on_startup=on_startup)
+    executor.start_polling(dp, skip_updates=True, on_startup=on_startup(dp))

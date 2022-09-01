@@ -67,7 +67,7 @@ async def members(message: types.Message):
 
     elif t == '1':
         pon4ik = message.chat.get_member_count()
-        await message.reply(f"{pon4ik}")
+        await message.reply(pon4ik)
     
     elif t == '.термукс' or t == '.т':
         termux = types.InlineKeyboardMarkup()
@@ -79,7 +79,7 @@ async def members(message: types.Message):
         except:
             pass
 
-        await message.reply('<b>ПОСЛЕДНЯЯ ВЕРСИЯ TERMUX</b>', reply_markup=termux)
+        await message.answer('<b>ПОСЛЕДНЯЯ ВЕРСИЯ TERMUX</b>', reply_markup=termux)
 
     elif t == '.боты' or t == '.bots' or t == '/bots' or t == '/bots@Music_Chat_ROBOT':
         bots = types.InlineKeyboardMarkup()
@@ -110,7 +110,7 @@ async def members(message: types.Message):
         except:
             pass
 
-        await message.reply('<b>⬇️⬇️ ПОЛЕЗНЫЕ БОТЫ ⬇️⬇️</b>', reply_markup=bots)
+        await message.answer('<b>⬇️⬇️ ПОЛЕЗНЫЕ БОТЫ ⬇️⬇️</b>', reply_markup=bots)
 
 
 async def on_startup(dp: Dispatcher):

@@ -1,4 +1,4 @@
-from aiogram import Dispatcher, Bot, types
+from aiogram import Dispatcher, Bot, types, executor
 from random import choice
 
 bot = Bot(token='5413288721:AAFE8S-ADmbFhFmdOoeD8q4gpBLliWpVvhE', parse_mode="HTML")
@@ -6,7 +6,7 @@ dp = Dispatcher(bot)
 
 q = ['Скамер', 'Ванючька пердючька', 'Жмот-хуеглот', 'Жадина гавядина', 'хуй вонючий', 'гандон пердасос', 'Везучий! Щанс выподения этого смс 2%!', 'Камень', 'Полуфабрикат', 'Лысый', 'Натурал', 'Понский пон', 'Жена математички', 'Ароматный писюн', 'Ебанат натрия', 'Хороший', 'Раб <a href="tg://user?id=1615591694">картошки</a>', 'Очко', 'Эгоист', 'Дрочун', 'Гей', 'Красавчик', 'Урод', 'Говно', 'Шрек', 'Спонсор сахариуса', 'Хуй', 'Путин', 'Хацкер', 'Далбаёб', 'Секси', 'Любитель сосочков', 'А4', 'Файзик гей', 'Музей пидарасов', 'Диабло GAY', 'ТРАХтарист', 'Мактрахер', 'Гачи-Мучи', 'Собака', 'Олд', 'Лох', 'Длинный хуй', 'Короткий хуй', 'Понос шакала', 'Сперма дракона', 'Петушиный клюв', 'Сранимешник', 'Залупа кита', 'Милашка', 'Топ', 'Даша-путешественница']
 
-@dp.message(content_types=['text'])
+@dp.message_handler(content_types=['text'])
 async def texts(message: types.Message):
     t = message.text
     if t == '.я' or t == '.Я':
@@ -129,16 +129,11 @@ async def on_startup(bot):
             await bot.send_message(admin, "<b>Бот успешно запущен/перезапущен! ✅</b>")
         except:pass
 
-    await bot.set_my_commands([
-        types.BotCommand('start', 'пон | старт'),
-        types.BotCommand('help', 'Помощь по боту'),
-        types.BotCommand('bots', 'пон | список крутых ботов'),
-    ])
-
-def main():
-    dp.run_polling(bot)
-    dp.startup(on_startup(bot))
-
+    #await bot.set_my_commands([
+    #    types.BotCommand('start', 'пон | старт'),
+    #    types.BotCommand('help', 'Помощь по боту'),
+    #    types.BotCommand('bots', 'пон | список крутых ботов'),
+    #])
 
 if __name__ == "__main__":
-    main()
+    executor.start_polling(dp, on_startup=on_startup)

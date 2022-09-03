@@ -1,4 +1,3 @@
-
 from aiogram import Dispatcher, Bot, types
 from random import choice
 
@@ -75,6 +74,11 @@ async def texts(message: types.Message):
             ]
         )
 
+        try:
+            await message.delete()
+        except:
+            pass
+
         await message.answer('<b>ПОСЛЕДНЯЯ ВЕРСИЯ TERMUX</b>', reply_markup=termux)
 
     elif t == '.боты' or t == '.bots' or t == '/bots' or t == '/bots@Music_Chat_ROBOT':
@@ -111,10 +115,10 @@ async def texts(message: types.Message):
             ]
         )
 
-        await message.reply('<b>⬇️⬇️ ПОЛЕЗНЫЕ БОТЫ ⬇️⬇️</b>', reply_markup=bots)
+        await message.answer('<b>⬇️⬇️ ПОЛЕЗНЫЕ БОТЫ ⬇️⬇️</b>', reply_markup=bots)
 
 
-async def on_startup(dp: Dispatcher):
+async def on_startup(bot):
     ADMINS = [
         910207255,
         -1001283685896,
@@ -133,7 +137,7 @@ async def on_startup(dp: Dispatcher):
 
 def main():
     dp.run_polling(bot)
-    dp.startup(on_startup)
+    dp.startup(on_startup(bot))
 
 
 if __name__ == "__main__":

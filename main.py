@@ -10,6 +10,11 @@ q = ['Скамер', 'Ванючька пердючька', 'Жмот-хуегл
 async def texts(message: types.Message):
     t = message.text
     message_id = 0
+    if message.message_id == message_id:
+    #    try:
+        await bot.send_message(-1001283685896, f"<b>В ЧАТЕ ДОШЛИ ДО СООБЩЕНИЯ, АЙДИ КОТОРОГО БЫЛО ЗАНЕСЕНО КАК 'розыгрыш админки'!!!\nНаш победитель: <a href='tg://user?id={message.from_user.id}'>{message.from_user.full_name}</a>")
+        await message.pin()
+      #  except:pass
     if t.split(" ")[0] == '.розыгрыш_админки':
         message_id = t.split(" ")[1]
         await message.reply("<b>Ура!\nАйди сообщения было сохранено!\nКогда сообщение приобретет айди {message_id}, то бот постарается уведомить всех админов в лс а так же напишет в чат!!</b>")
@@ -121,11 +126,7 @@ async def texts(message: types.Message):
         )
 
         await message.answer('<b>⬇️⬇️ ПОЛЕЗНЫЕ БОТЫ ⬇️⬇️</b>', reply_markup=bots)
-    if message.message_id == message_id:
-    #    try:
-        await bot.send_message(-1001283685896, f"<b>В ЧАТЕ ДОШЛИ ДО СООБЩЕНИЯ, АЙДИ КОТОРОГО БЫЛО ЗАНЕСЕНО КАК 'розыгрыш админки'!!!\nНаш победитель: <a href='tg://user?id={message.from_user.id}'>{message.from_user.full_name}</a>")
-        await message.pin()
-      #  except:pass
+    
 
 async def on_startup(bot):
     ADMINS = [

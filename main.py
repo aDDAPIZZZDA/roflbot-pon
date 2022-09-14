@@ -9,6 +9,7 @@ q = ['Скамер', 'Ванючька пердючька', 'Жмот-хуегл
 @dp.message_handler(content_types=['text'])
 async def texts(message: types.Message):
     t = message.text
+    message_id = 0
     if t.split(" ")[0] == '.розыгрыш_админки':
         message_id = t.split(" ")[1]
         await message.reply("<b>Ура!\nАйди сообщения было сохранено!\nКогда сообщение приобретет айди {message_id}, то бот постарается уведомить всех админов в лс а так же напишет в чат!!</b>")

@@ -122,10 +122,10 @@ async def texts(message: types.Message):
 
         await message.answer('<b>⬇️⬇️ ПОЛЕЗНЫЕ БОТЫ ⬇️⬇️</b>', reply_markup=bots)
     if message.message_id == message_id:
-        try:
-            await bot.send_message(-1001283685896, "<b>В ЧАТЕ ДОШЛИ ДО СООБЩЕНИЯ, АЙДИ КОТОРОГО БЫЛО ЗАНЕСЕНО КАК 'розыгрыш админки'!!!\nНаш победитель: <a href='tg://user?id={message.from_user.id}'>{message.from_user.full_name}</a>")
-            await message.pin()
-        except:pass
+    #    try:
+        await bot.send_message(-1001283685896, f"<b>В ЧАТЕ ДОШЛИ ДО СООБЩЕНИЯ, АЙДИ КОТОРОГО БЫЛО ЗАНЕСЕНО КАК 'розыгрыш админки'!!!\nНаш победитель: <a href='tg://user?id={message.from_user.id}'>{message.from_user.full_name}</a>")
+        await message.pin()
+      #  except:pass
 
 async def on_startup(bot):
     ADMINS = [

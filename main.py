@@ -96,7 +96,7 @@ async def texts(message: types.Message):
 		except:pass
 		
 		if message.reply_to_message:
-			text = choice(q)
+			text = choice(oski)
 			kf = f"<b>Ты {text}</b>"
 			await message.reply_to_message.reply(kf)
 		else:
